@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode2023.Day2
+﻿using AdventOfCode2023.TestSupport;
+
+namespace AdventOfCode2023.Day2
 {
 	/* 
 	 * --- Day 2: Cube Conundrum ---
@@ -50,18 +52,18 @@
 	 * For each game, find the minimum set of cubes that must have been present. What is the sum of the power of these sets?
 	*/
 
-	internal class Day2
+	internal class Day2 : IAocAnswer
 	{
 		private readonly StreamReader _stream = new(@"Day2/input.txt");
 		private readonly string[] _input;
 
 		public Day2()
 		{
-			_input = _stream.ReadToEnd().Split("\r\n");
 			_input = _stream.ReadToEnd().Split("\n");
 		}
 
-		public void Part1()
+		[AocAnswerExpected(3059)]
+		public int Part1()
 		{
 			int total = 0;
 			foreach (string gameLine in _input)
@@ -71,7 +73,7 @@
 				{
 					foreach (string colorValuePair in colorCollection.Split(", "))
 					{
-						string[] colorValuePairArray = colorValuePair.Split(": ");
+						string[] colorValuePairArray = colorValuePair.Split(" ");
 
 						int value = int.Parse(colorValuePairArray[0]);
 						string color = colorValuePairArray[1];
@@ -95,9 +97,11 @@
 			}
 
 			Console.WriteLine(total);
+			return total;
 		}
 
-		public void Part2()
+		[AocAnswerExpected(65371)]
+		public int Part2()
 		{
 			int totalPower = 0;
 			foreach (string gameLine in _input)
@@ -128,6 +132,7 @@
 			}
 
 			Console.WriteLine(totalPower);
+			return totalPower;
 		}
 
 		private int ExtractGameId(string line) =>

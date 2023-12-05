@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode2023.Day1
+﻿using AdventOfCode2023.TestSupport;
+
+namespace AdventOfCode2023.Day1
 {
     /*
      * --- Day 1: Trebuchet?! ---
@@ -39,7 +41,7 @@
      * 
      * What is the sum of all of the calibration values? 
     */
-    internal class Day1
+    internal class Day1 : IAocAnswer
     {
         private readonly StreamReader _stream = new(@"Day1/input.txt");
         private readonly string[] _input;
@@ -70,7 +72,8 @@
             _input = _stream.ReadToEnd().Split("\r\n");
         }
 
-        public void Part1()
+        [AocAnswerExpected(54990)]
+        public int Part1()
         {
             int total = 0;
             foreach (string s in _input)
@@ -81,9 +84,11 @@
             }
 
             Console.WriteLine(total);
+            return total;
         }
 
-        public void Part2()
+        [AocAnswerExpected(54473)]
+        public int Part2()
         {
             int total = 0;
             foreach (string s in _input)
@@ -99,6 +104,7 @@
                 total += number;
             }
             Console.WriteLine(total);
+            return total;
         }
     }
 }

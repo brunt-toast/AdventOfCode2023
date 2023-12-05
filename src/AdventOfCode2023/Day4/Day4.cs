@@ -1,6 +1,8 @@
-﻿namespace AdventOfCode2023.Day4
+﻿using AdventOfCode2023.TestSupport;
+
+namespace AdventOfCode2023.Day4
 {
-    internal class Day4
+    internal class Day4 : IAocAnswer
     {
         /* 
          * --- Day 4: Scratchcards ---
@@ -74,7 +76,8 @@
             _input = _stream.ReadToEnd().Split("\r\n");
         }
 
-        public void Part1()
+        [AocAnswerExpected(21485)]
+        public int Part1()
         {
             int total = 0;
             foreach (string line in _input)
@@ -107,12 +110,16 @@
                 total += cardTotal;
             }
             Console.WriteLine(total);
+            return total;
         }
 
-        public void Part2()
+        [AocAnswerExpected(11024379)]
+        public int Part2()
         {
             List<int> ids = Enumerable.Range(1, _input.Length).ToList();
-            Console.WriteLine(CountCards(ids));
+            int answer = CountCards(ids);
+            Console.WriteLine(answer);
+            return answer;
         }
 
         private int CountMatches(int cardId)
