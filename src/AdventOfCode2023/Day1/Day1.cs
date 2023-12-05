@@ -45,7 +45,6 @@
         private readonly string[] _input;
         private readonly Dictionary<string, string> _conversions = new()
         {
-            { "oneight", "oneeight" },
             { "threeight", "38"},
             { "fiveight", "58"},
             { "nineight", "98"},
