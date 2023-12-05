@@ -58,6 +58,7 @@
 		public Day2()
 		{
 			_input = _stream.ReadToEnd().Split("\r\n");
+			_input = _stream.ReadToEnd().Split("\n");
 		}
 
 		public void Part1()
