@@ -1,4 +1,7 @@
 ﻿using AdventOfCode2023.TestSupport;
+using System.Collections;
+using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AdventOfCode2023.Day5
 {
@@ -126,6 +129,7 @@ namespace AdventOfCode2023.Day5
             _humidityToLocationMap = ExtractMapItems(190, 205);
         }
 
+        // [AocAnswerExpected(322500873)]
         public int Part1()
         {
             throw new NotImplementedException();
@@ -136,34 +140,40 @@ namespace AdventOfCode2023.Day5
             throw new NotImplementedException();
         }
 
-        private List<MapItem> ExtractMapItems(int lowestLineIndex, int highestLineIndex)
-        {
-            foreach (string line in new ArraySegment<string>(_input, lowestLineIndex, highestLineIndex))
-            {
-                Console.WriteLine($"{line}");
-            }
-
-            return new ArraySegment<string>(_input, lowestLineIndex, highestLineIndex).Select(
+        private List<MapItem> ExtractMapItems(int lowestLineIndex, int highestLineIndex) =>
+            new ArraySegment<string>(_input, lowestLineIndex, highestLineIndex - lowestLineIndex).Select(
                 x => new MapItem(
-                    UInt64.Parse(x.Split(" ")[0]),
-                    UInt64.Parse(x.Split(" ")[1]),
-                    UInt64.Parse(x.Split(" ")[2])
+                    ulong.Parse(x.Split(" ").Where(x => ulong.TryParse(x, out ulong _)).ToArray()[0]),
+                    ulong.Parse(x.Split(" ").Where(x => ulong.TryParse(x, out ulong _)).ToArray()[1]),
+                    ulong.Parse(x.Split(" ").Where(x => ulong.TryParse(x, out ulong _)).ToArray()[2])
                     )
                 ).ToList();
-        }
 
         private class MapItem
         {
-            public UInt64 DestinationRangeStart { get; }
-            public UInt64 SourceRangeStart { get; }
-            public UInt64 RangeLength { get; }
+            public ulong DestinationRangeStart { get; }
+            public ulong SourceRangeStart { get; }
+            public ulong RangeLength { get; }
 
-            public MapItem(UInt64 destinationRangeStart, UInt64 sourceRangeStart, UInt64 rangeLength)
+            public List<ulong> SourceRange => ULongRange(SourceRangeStart, RangeLength);
+            public List<ulong> DestinationRange => ULongRange(DestinationRangeStart, RangeLength);
+
+            public MapItem(ulong destinationRangeStart, ulong sourceRangeStart, ulong rangeLength)
             {
                 DestinationRangeStart = destinationRangeStart;
                 SourceRangeStart = sourceRangeStart;
                 RangeLength = rangeLength;
             }
+        }
+
+        private static List<ulong> ULongRange(ulong startIndex, ulong nItems)
+        {
+            List<ulong> output = new();
+            for (ulong i = startIndex; i < nItems; i++)
+            {
+                output.Add(i);
+            }
+            return output;
         }
     }
 }
