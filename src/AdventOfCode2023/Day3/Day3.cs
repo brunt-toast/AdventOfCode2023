@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode2023.Day3
+﻿using AdventOfCode2023.TestSupport;
+
+namespace AdventOfCode2023.Day3
 {
     /* 
      * --- Day 3: Gear Ratios ---
@@ -30,7 +32,7 @@
      * 
      * Of course, the actual engine schematic is much larger. What is the sum of all of the part numbers in the engine schematic?
     */
-    internal class Day3
+    internal class Day3 : IAocAnswer
     {
         private readonly StreamReader _stream = new(@"Day3/input.txt");
 
@@ -42,7 +44,7 @@
             _input = input.Split("\n");
         }
 
-        public void Part1()
+        public int Part1()
         {
             List<GridPosition> gridPositions = new();
             for (int y = 0; y < _input.Length; y++)
@@ -64,7 +66,14 @@
 
             List<GridNumber> partNumbers = gridNumbers.Where(x => x.IsPartNumber).ToList();
             Console.WriteLine(string.Join("\n\n", partNumbers.Select(x => x.ShowAdjacent())));
-            Console.WriteLine(partNumbers.Select(x => x.Value).Sum());
+            int answer = partNumbers.Select(x => x.Value).Sum();
+            Console.WriteLine(answer);
+            return answer;
+        }
+
+        public int Part2()
+        {
+            throw new NotImplementedException();
         }
 
         private class GridPosition

@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using AdventOfCode2023.TestSupport;
 
 namespace AdventOfCode2023.Day5
 {
@@ -98,7 +98,7 @@ namespace AdventOfCode2023.Day5
      * 
      * What is the lowest location number that corresponds to any of the initial seed numbers?
     */
-    internal class Day5
+    internal class Day5 : IAocAnswer
     {
         private readonly StreamReader _stream = new(@"Day5/input.txt");
         private readonly string[] _input;
@@ -124,6 +124,16 @@ namespace AdventOfCode2023.Day5
             _lightToTemperatureMap = ExtractMapItems(122, 154);
             _temperatureToHumidityMap = ExtractMapItems(156, 187);
             _humidityToLocationMap = ExtractMapItems(190, 205);
+        }
+
+        public int Part1()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Part2()
+        {
+            throw new NotImplementedException();
         }
 
         private List<MapItem> ExtractMapItems(int lowestLineIndex, int highestLineIndex)
