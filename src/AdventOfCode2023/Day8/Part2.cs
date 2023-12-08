@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AdventOfCode2023.TestSupport;
+﻿using AdventOfCode2023.TestSupport;
 using static AdventOfCode2023.Day8.Common;
 
 namespace AdventOfCode2023.Day8
@@ -18,14 +13,22 @@ namespace AdventOfCode2023.Day8
             _input = _stream.ReadToEnd().Split("\r\n");
         }
 
+        /// <remarks>
+        /// Traversing all paths simultaneously is slow and inefficient.
+        /// The best way is to calculate the step value for all paths
+        /// and find their lowest common multiple.
+        ///
+        /// The answer to this part is too big to fit in an integer.
+        /// Refactoring was done so that all AOC part answers are longs. 
+        /// </remarks>
         [AocAnswerExpected(9177460370549)]
         public long Run()
         {
             List<Node> nodes = _input.Skip(2).Select(x => new Node(x)).ToList();
             List<Node> currentNodes = nodes.Where(x => x.Id.EndsWith('A')).ToList();
-            List<int> pathLengths = currentNodes.Select(CountPathSteps).ToList();
+            int[] pathLengths = currentNodes.Select(CountPathSteps).ToArray();
 
-            long answer = GetLcm(pathLengths.ToArray());
+            long answer = GetLcm(pathLengths);
             Console.WriteLine(answer);
             return answer;
         }
@@ -74,7 +77,7 @@ namespace AdventOfCode2023.Day8
                         case 0:
                             return 0;
                         case < 0:
-                            elementArray[i] = elementArray[i] * (-1);
+                            elementArray[i] *= (-1);
                             break;
                     }
                     if (elementArray[i] == 1)
