@@ -1,8 +1,13 @@
-﻿namespace AdventOfCode2023.TestSupport
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AdventOfCode2023.TestSupport
 {
     public interface IAocAnswer
     {
-        public long Part1();
-        public long Part2();
+        public long Run();
     }
 }
