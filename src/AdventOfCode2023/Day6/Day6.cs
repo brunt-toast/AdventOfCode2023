@@ -78,7 +78,7 @@ namespace AdventOfCode2023.Day6
         }
 
         [AocAnswerExpected(252000)]
-        public int Part1()
+        public long Part1()
         {
             List<int> raceTimes = _input[0].Replace("Time: ", "").Split(" ").Where(x => int.TryParse(x, out int _)).Select(x => int.Parse(x.Trim())).ToList();
             List<int> maxDistances = _input[1].Replace("Distance: ", "").Split(" ").Where(x => int.TryParse(x, out int _)).Select(x => int.Parse(x.Trim())).ToList();
@@ -108,7 +108,7 @@ namespace AdventOfCode2023.Day6
         }
 
         [AocAnswerExpected(36992486)]
-        public int Part2()
+        public long Part2()
         {
             long raceTime = ExtractNumberWithKerning(_input[0]);
             long distanceRecord = ExtractNumberWithKerning(_input[1]);

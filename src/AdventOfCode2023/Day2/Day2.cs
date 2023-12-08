@@ -63,7 +63,7 @@ namespace AdventOfCode2023.Day2
 		}
 
 		[AocAnswerExpected(3059)]
-		public int Part1()
+		public long Part1()
 		{
 			int total = 0;
 			foreach (string gameLine in _input)
@@ -101,7 +101,7 @@ namespace AdventOfCode2023.Day2
 		}
 
 		[AocAnswerExpected(65371)]
-		public int Part2()
+		public long Part2()
 		{
 			int totalPower = 0;
 			foreach (string gameLine in _input)

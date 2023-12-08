@@ -73,7 +73,7 @@ namespace AdventOfCode2023.Day1
         }
 
         [AocAnswerExpected(54990)]
-        public int Part1()
+        public long Part1()
         {
             int total = 0;
             foreach (string s in _input)
@@ -88,7 +88,7 @@ namespace AdventOfCode2023.Day1
         }
 
         [AocAnswerExpected(54473)]
-        public int Part2()
+        public long Part2()
         {
             int total = 0;
             foreach (string s in _input)

@@ -130,12 +130,12 @@ namespace AdventOfCode2023.Day5
         }
 
         // [AocAnswerExpected(322500873)]
-        public int Part1()
+        public long Part1()
         {
             throw new NotImplementedException();
         }
 
-        public int Part2()
+        public long Part2()
         {
             throw new NotImplementedException();
         }

@@ -44,7 +44,7 @@ namespace AdventOfCode2023.Day3
             _input = input.Split("\n");
         }
 
-        public int Part1()
+        public long Part1()
         {
             List<GridPosition> gridPositions = new();
             for (int y = 0; y < _input.Length; y++)
@@ -71,7 +71,7 @@ namespace AdventOfCode2023.Day3
             return answer;
         }
 
-        public int Part2()
+        public long Part2()
         {
             throw new NotImplementedException();
         }

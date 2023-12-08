@@ -1,4 +1,5 @@
 ﻿using AdventOfCode2023.TestSupport;
+using System.Runtime.CompilerServices;
 
 namespace AdventOfCode2023.Day4
 {
@@ -77,7 +78,7 @@ namespace AdventOfCode2023.Day4
         }
 
         [AocAnswerExpected(21485)]
-        public int Part1()
+        public long Part1()
         {
             int total = 0;
             foreach (string line in _input)
@@ -114,7 +115,7 @@ namespace AdventOfCode2023.Day4
         }
 
         [AocAnswerExpected(11024379)]
-        public int Part2()
+        public long Part2()
         {
             List<int> ids = Enumerable.Range(1, _input.Length).ToList();
             int answer = CountCards(ids);

@@ -4,9 +4,9 @@
     [AttributeUsage(AttributeTargets.Method)]
     public class AocAnswerExpected : Attribute
     {
-        public int TargetValue { get; }
+        public long TargetValue { get; }
 
-        public AocAnswerExpected(int targetValue)
+        public AocAnswerExpected(long targetValue)
         {
             TargetValue = targetValue;
         }

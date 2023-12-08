@@ -2,7 +2,7 @@
 {
     public interface IAocAnswer
     {
-        public int Part1();
-        public int Part2();
+        public long Part1();
+        public long Part2();
     }
 }
