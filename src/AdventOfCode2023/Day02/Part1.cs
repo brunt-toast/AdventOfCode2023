@@ -1,26 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AdventOfCode2023.TestSupport;
+﻿using AdventOfCode2023.TestSupport;
 
-namespace AdventOfCode2023.Day2
+namespace AdventOfCode2023.Day02
 {
-    internal class Part2 : IAocAnswer
+    internal class Part1 : IAocAnswer
     {
-        private readonly StreamReader _stream = new(@"Day2/input.txt");
+        private readonly StreamReader _stream = new(@"Day02/input.txt");
         private readonly string[] _input;
 
-        public Part2()
+        public Part1()
         {
             _input = _stream.ReadToEnd().Split("\n");
         }
 
-        [AocAnswerExpected(65371)]
+        [AocAnswerExpected(3059)]
         public long Run()
         {
-            int totalPower = 0;
+            int total = 0;
             foreach (string gameLine in _input)
             {
                 int[] values = { 0, 0, 0 };
@@ -45,12 +40,17 @@ namespace AdventOfCode2023.Day2
                     }
                 }
 
-                totalPower += values[0] * values[1] * values[2];
+                if (values[0] <= 12 && values[1] <= 13 && values[2] <= 14)
+                {
+                    total += ExtractGameId(gameLine);
+                }
             }
 
-            Console.WriteLine(totalPower);
-            return totalPower;
+            Console.WriteLine(total);
+            return total;
         }
 
+        private int ExtractGameId(string line) =>
+            int.Parse(line.Split(": ")[0].Split(" ")[1]);
     }
 }

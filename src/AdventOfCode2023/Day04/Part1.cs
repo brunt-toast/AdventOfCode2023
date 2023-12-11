@@ -1,15 +1,10 @@
 ﻿using AdventOfCode2023.TestSupport;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AdventOfCode2023.Day4
+namespace AdventOfCode2023.Day04
 {
     internal class Part1
     {
-        private readonly StreamReader _stream = new(@"Day4/input.txt");
+        private readonly StreamReader _stream = new(@"Day04/input.txt");
         private readonly string[] _input;
 
         public Part1()
