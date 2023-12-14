@@ -27,7 +27,7 @@ namespace AdventOfCode2023.Tests
                     AocAnswerExpected attribute = methodInfo.GetCustomAttributes().First(a => a is AocAnswerExpected) as AocAnswerExpected;
                     object classInstance = Activator.CreateInstance(t, null);
                     Assert.AreEqual(attribute.TargetValue, methodInfo.Invoke(classInstance, null),
-                        $"Assertion failed in {t.Name}.{methodInfo.Name}");
+                        $"Assertion failed in {t.Namespace}.{t.Name}.{methodInfo.Name}");
                 }
             }
         }
