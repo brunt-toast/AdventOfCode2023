@@ -18,7 +18,6 @@ namespace AdventOfCode2023.Day09
             _input = _stream.ReadToEnd().Split("\r\n");
         }
 
-        [AocAnswerExpected(1798691765)]
         public long Run()
         {
             List<List<int>> lines = _input.Select(line => line.Split(' '))
