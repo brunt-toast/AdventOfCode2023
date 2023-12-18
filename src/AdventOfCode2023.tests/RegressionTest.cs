@@ -4,7 +4,7 @@ using System.Reflection;
 namespace AdventOfCode2023.Tests
 {
     [TestClass]
-    public class UnitTest
+    public class RegressionTest
     {
         [TestMethod]
         public void CheckAnswers()
