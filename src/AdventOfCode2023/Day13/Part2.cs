@@ -11,7 +11,7 @@ namespace AdventOfCode2023.Day13
 {
     public class Part2 : IAocAnswer
     {
-        private StreamReader _stream = new(@"Day12/input.txt");
+        private StreamReader _stream = new(@"Day13/input.txt");
         private readonly string[] _input;
 
         public Part2()
