@@ -8,7 +8,7 @@ using AdventOfCode2023.TestSupport;
 
 namespace AdventOfCode2023.Day21
 {
-    internal class Part1 : IAocAnswer
+    public class Part1 : IAocAnswer
     {
         private StreamReader _stream = new(@"Day21/input.txt");
         private readonly string[] _input;

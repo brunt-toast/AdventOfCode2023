@@ -3,7 +3,7 @@ using static AdventOfCode2023.Day07.Common;
 
 namespace AdventOfCode2023.Day07
 {
-    internal class Part1 : IAocAnswer
+    public class Part1 : IAocAnswer
     {
         private StreamReader _stream = new(@"Day07/input.txt");
         private readonly string[] _input;

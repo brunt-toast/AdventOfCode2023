@@ -2,7 +2,7 @@
 
 namespace AdventOfCode2023.Day07
 {
-    internal class Part2 : IAocAnswer
+    public class Part2 : IAocAnswer
     {
         private StreamReader _stream = new(@"Day07/input.txt");
         private readonly string[] _input;
